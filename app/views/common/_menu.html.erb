@@ -1,0 +1,34 @@
+<div class="navbar navbar-fixed-top ">
+      <div class="navbar-inner top ">
+        <div class="container">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+
+          <%= link_to(Setting.app_name, Setting.domain , :class => "brand" )%>
+<!-- 
+          <%= render :partial => "common/search_form" %>
+ -->
+   
+     
+          <div class="nav-collapse">
+      
+              <%= render_list :class => "nav" do |li|
+                li << link_to("首頁","/pages/welcome")
+                li << link_to("流程","/pages/plan")
+                li << link_to("價格","/pages/price")
+                li << link_to("烘焙師","/pages/barista")
+                # li << link_to("排行榜","pages/rank")
+              end %>
+              
+              <%= render :partial => "common/user_nav"%>
+
+          </div>
+    </div>
+  </div>
+
+  <%= yield :submenu %>
+
+</div>

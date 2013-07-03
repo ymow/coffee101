@@ -1,0 +1,104 @@
+<script type="text/javascript">
+var numQues = 4;
+var numChoices = 4;
+
+var answers = new Array(numQues);
+answers[0] = "b";
+answers[1] = "c";
+answers[2] = "b";
+answers[3] = "a";
+
+
+function getScore(form) {
+    var score = 0;
+    var currQ;
+    var currChoice;
+    var i, j;
+
+    // loop through the number of questions
+    for (i = 0; i < numQues; i ++) {
+
+        // build the name of the form element we want to look at by
+        // appending the loop number to 'q', on the first loop the value
+        // will be 'q1', on the second 'q2' and so on
+        var eleName = 'q' + (i + 1);
+
+        // get all the form elements with the name we built above
+        // this should get 4 elements (one for each of the selectable answers)
+        var answerRadios = form[eleName];
+
+        // loop through the 4 answer radio buttons
+        for (j = 0; j < answerRadios.length; j++) {
+
+            // create a variable to store the current radio button, so
+            // it is easier to refernce
+            var radio = answerRadios[j];
+
+            // now we check that is this radio button is checked (selected)
+            // and the value of this radio is the answer (as defined at the top)
+            // then we add 1 tot he score
+            if (radio.checked === true && radio.value === answers[i]) {
+                score += 1;
+            }
+        }
+    }
+
+    // write the score to the html
+    form.scoreOutofFour.value = score + "/4";
+}
+</script>
+
+<div id="content">
+<form name="quiz">
+  <table>
+    <tr>
+      <td> 
+        <b>1.</b> Example Question 1  <br />
+        <input type="radio" name="q1" value="a" /> a) Example answer 1 <img class="radio" src="/assets/images/1.png" id="radio1"/><br />
+        
+        <input type="radio" name="q1" value="b" /> b) Example answer 2 <br />
+        <input type="radio" name="q1" value="c" /> c) Example answer 3<br />
+        <input type="radio" name="q1" value="d" /> d) Example answer 4<br />
+      </td>
+    </tr>
+    <tr>
+      <td> 
+        <b>2.</b>Example Question 2 <br />
+        <input type="radio" name="q2" value="a" /> a) Example answer 1 <br />
+        <input type="radio" name="q2" value="b" /> b) Example answer 2 <br />
+        <input type="radio" name="q2" value="c" /> c) Example answer 3 <br />
+        <input type="radio" name="q2" value="d" /> d) Example answer 4 <br />
+      </td>
+    </tr>
+    <tr>
+      <td> 
+        <b>3.</b> Example Question 3  <br />
+        <input type="radio" name="q3" value="a" /> a) Example answer 1 <br />
+        <input type="radio" name="q3" value="b" /> b) Example answer 2<br />
+        <input type="radio" name="q3" value="c" /> c) Example answer 3  <br />
+        <input type="radio" name="q3" value="d" /> d) Example answer 4 <br />
+      </td>
+    </tr>
+    <tr>
+      <td> 
+        <b>4.</b>Example Question 4<br />
+        <input type="radio" name="q4" value="a" /> a) Example answer 1  <br />
+        <input type="radio" name="q4" value="b" /> b) Example answer 2<br />
+        <input type="radio" name="q4" value="c" /> c) Example answer 3 <br />
+        <input type="radio" name="q4" value="d" /> d) Example answer 4   <br />
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2">
+        <b><input type="button" value="Get score" onClick="getScore(this.form); readtheCookie();" /> 
+        <input type="reset" value="Clear" /></b> 
+        <p>
+          <b>
+        <div id="cookie12"></div></b><br />
+        <textarea name="scoreOutofFour" size="15"></textarea>
+        <br />  
+      </td>
+    </tr>
+  </table>
+</form>
+</div>

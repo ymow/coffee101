@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+ <meta charset="UTF-8" />
+ <title>PhoneGap</title>
+ <script type="text/javascript" src="cordova-2.4.0.js"></script>
+
+ <script type="text/javascript">
+  function onDeviceReady() {
+   document.getElementById("hihi").innerHTML = 
+    "跨出成功的第一步^^";
+  }
+
+  function init(){
+   document.addEventListener("deviceready", onDeviceReady, false);
+  }
+  
+  window.onload = init;
+ </script>
+</head>
+<body>
+ <h1 id="hihi">沒成功, 繼續加油!</h1>
+</body>
+</html>

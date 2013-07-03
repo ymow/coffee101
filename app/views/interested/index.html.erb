@@ -1,0 +1,53 @@
+<h1>Listing boards</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @boards.each do |board| %>
+  <tr>
+    <td><%= board.name %></td>
+    <td><%= link_to 'Show', board %></td>
+    <td><%= link_to 'Edit', edit_board_path(board) %></td>
+    <td><%= link_to 'Destroy', board, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Board', new_board_path %>
+
+<div class="artist-gallery">
+  <div class="artist-shadow"></div>
+  <div class="artist-images">
+      <a href="http://soundready.fm/artists/107-Radiohead/playlists/5163">
+        <div class="image-wrapper">
+          <img src="http://s3.amazonaws.com/preset-production/107/default?1330545712">
+          <h3>Radiohead</h3>
+        </div>
+      </a>
+      <a href="http://soundready.fm/artists/195-Drake/playlists/4136">
+        <div class="image-wrapper">
+          <img src="http://s3.amazonaws.com/preset-production/195/default?1330547009">
+          <h3>Drake</h3>
+        </div>
+      </a>
+      <a href="http://soundready.fm/artists/2-The+Black+Keys/playlists/5844">
+        <div class="image-wrapper">
+          <img src="http://s3.amazonaws.com/preset-production/2/default?1330535054">
+          <h3>The Black Keys</h3>
+        </div>
+      </a>
+      <a href="http://soundready.fm/artists/782-The+Fray/playlists/5422">
+        <div class="image-wrapper">
+          <img src="http://s3.amazonaws.com/preset-production/782/default?1330609496">
+          <h3>The Fray</h3>
+        </div>
+      </a>
+  </div>
+</div>
